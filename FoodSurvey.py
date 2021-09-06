@@ -10,16 +10,19 @@ Curry = IntVar()
 
 
 frame1 = LabelFrame(root, text='Which food do you want for lunch?', bg='silver')
-frame1.grid(row=1,column=2)
+frame1.grid(row=1, column=2)
 
 frame2 = LabelFrame(root, text='Choose your favorite toppings', bg='white')
-frame2.grid(row=5, column=1)
+frame2.grid(row=2, column=1)
 
 frame3 = LabelFrame(root, text='Choose your favorite chicken dish', bg='white')
-frame3.grid(row=5, column=2)
+frame3.grid(row=2, column=2)
 
 frame4 = LabelFrame(root, text='Choose your favorite curry dish', bg='white')
-frame4.grid(row=5, column=3)
+frame4.grid(row=2, column=3)
+
+frame5 = LabelFrame(root, text='Your menu', bg='white')
+frame5.grid(row=3, column=2)
 
 
 def on_closing():
@@ -45,7 +48,7 @@ def pizza_options():
         pizza.set('Cheese')
         for choice, option in toppings:
             Radiobutton(frame2, text=choice, variable=pizza, value=option, command=lambda: clicked(
-                pizza.get(), frame2)).pack(anchor=NW)
+                pizza.get(), frame5)).pack(anchor=NW)
     else:
         pass
 
@@ -63,7 +66,7 @@ def dishes():
         chicken.set('Lemongrass Chicken')
         for choice, option in dish:
             Radiobutton(frame3, text=choice, variable=chicken, value=option, command=lambda: clicked(
-                chicken.get(), frame3)).pack(anchor=NW)
+                chicken.get(), frame5)).pack(anchor=NW)
     else:
         pass
 
@@ -81,7 +84,7 @@ def curries():
         curry.set('Red Curry')
         for choice, option in dish:
             Radiobutton(frame4, text=choice, variable=curry, value=option, command=lambda: clicked(
-                curry.get(), frame4)).pack(anchor=NW)
+                curry.get(), frame5)).pack(anchor=NW)
 
     else:
         pass
